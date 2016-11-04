@@ -15,28 +15,23 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Login"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity android:name=".ActionBar" />
-        <!-- <activity android:name=".MainFriendActivity" /> -->
-        <activity android:name=".SignUpActivity">
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <!-- <activity android:name=".PerfectPlanner" /> -->
-        <activity android:name=".BaseActivity" />
-        <activity android:name=".SignInActivity"></activity>
-=======
-
         <activity android:name=".ActionBar" />
-        <activity android:name=".AddTaskActivity"/>
-        <activity android:name=".MainFriendActivity"/>
-        <activity android:name=".SummaryActivity"/>
-
->>>>>>> ad5456571fe1030df9fcff05326aefc4b07e175b
+        <activity android:name=".AddTaskActivity" />
+        <activity android:name=".MainFriendActivity" />
+        <activity android:name=".SummaryActivity" />
+        <activity android:name=".PerfectPlanner" />
+        <activity android:name=".ResetPasswordActivity"></activity>
     </application>
 
 </manifest>

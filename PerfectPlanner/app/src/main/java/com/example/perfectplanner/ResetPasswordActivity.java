@@ -10,15 +10,14 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 
-public class SignUpActivity extends BaseActivity {
+public class ResetPasswordActivity extends AppCompatActivity {
 
     // Initialise Firebase Assets
     private FirebaseAuth mAuth;
@@ -26,19 +25,18 @@ public class SignUpActivity extends BaseActivity {
 
     private Toolbar mToolbar;
 
-    private Button mCreateButton;
+    private Button mResetButton;
 
     private TextInputLayout mEmailInputLayout;
-    private TextInputLayout mPasswordInputLayout;
 
     private TextInputEditText mEmailInput;
-    private TextInputEditText mPasswordInput;
 
-    private ProgressDialog mAccountCreationProgressDialog;
+    private ProgressDialog mResetProgressDialog;
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_reset_password);
         setupToolbar();
         initialiseUI();
         initialiseFirebase();
@@ -91,79 +89,52 @@ public class SignUpActivity extends BaseActivity {
     }
 
     private void initialiseUI() {
-        mEmailInputLayout = (TextInputLayout) findViewById(R.id.sign_up_email_layout);
-        mEmailInput = (TextInputEditText) findViewById(R.id.sign_up_email);
+        mEmailInputLayout = (TextInputLayout) findViewById(R.id.reset_email_layout);
+        mEmailInput = (TextInputEditText) findViewById(R.id.reset_email);
 
-        mPasswordInputLayout = (TextInputLayout) findViewById(R.id.sign_up_password_layout);
-        mPasswordInput = (TextInputEditText) findViewById(R.id.sign_up_password);
+        mResetButton = (Button) findViewById(R.id.reset_button);
 
-        mCreateButton = (Button) findViewById(R.id.sign_up_button);
-
-        mAccountCreationProgressDialog = new ProgressDialog(this);
-        mAccountCreationProgressDialog.setMessage(getString(R.string.progress_dialog_creating_account));
-        mAccountCreationProgressDialog.setCancelable(false);
+        mResetProgressDialog = new ProgressDialog(this);
+        mResetProgressDialog.setMessage(getString(R.string.progress_dialog_reset));
+        mResetProgressDialog.setCancelable(false);
     }
 
 
     private void setupToolbar() {
-        mToolbar = (Toolbar) findViewById(R.id.sign_up_toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.reset_toolbar);
 
         setSupportActionBar(mToolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        mToolbar.setTitle("Register Account");
+        mToolbar.setTitle("Forgot Password");
     }
 
-    public void onSignUpWithEmailPressed(View view) {
-        signUpWithEmail();
+    public void onResetPressed(View view) {
+        mResetProgressDialog.show();
+        mResetProgressDialog.setCancelable(false);
+        resetPasswordWithEmail();
     }
 
-    private void signUpWithEmail() {
+    private void resetPasswordWithEmail() {
         String email = mEmailInput.getText().toString();
-        String password = mPasswordInput.getText().toString();
 
-        // Check for empty edit text fields before authentication
-        if (email.equals("")) {
-            mEmailInputLayout.setError(getString(R.string.error_empty_email));
-            return;
-        }
-
-        if (password.equals("")) {
-            mPasswordInputLayout.setError(getString(R.string.error_empty_password));
-            return;
-        }
-
-        mAccountCreationProgressDialog.show();
-
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (!task.isSuccessful()) {
-                    // Sign Up FAILED
-                    mAccountCreationProgressDialog.dismiss();
-                } else {
-                    // Sign Up SUCCESS
-                    //mAccountCreationProgressDialog.dismiss();
-                    //Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    //RESET SUCCESS
+                    mResetProgressDialog.hide();
+                    Intent intent = new Intent(ResetPasswordActivity.this, SignInActivity.class);
                     //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    //startActivity(intent);
-                    //finish();
-                    addAdditionalUserInformation();
+                    startActivity(intent);
+                } else {
+                    //RESET FAILED
+                    mResetProgressDialog.hide();
+                    Toast.makeText(ResetPasswordActivity.this, "Reset Failed. Please try again later...", Toast.LENGTH_LONG).show();
                 }
+
             }
         });
-    }
-
-    private void addAdditionalUserInformation(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-        String uID;
-
-        if (user != null) {
-            uID = user.getUid();
-        }
-
-
     }
 }

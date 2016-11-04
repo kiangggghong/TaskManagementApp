@@ -17,12 +17,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Random;
 
 
-public class ActionBar extends AppCompatActivity
+public class ActionBar extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    protected DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +45,7 @@ public class ActionBar extends AppCompatActivity
         });
         fab.hide();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -60,7 +63,10 @@ public class ActionBar extends AppCompatActivity
 //            navigationView.getMenu().getItem(0).setChecked(true);
         }
         //open drawer on default
-        drawer.openDrawer(GravityCompat.START);
+        //drawer.openDrawer(GravityCompat.START);
+
+        navigationView.getMenu().performIdentifierAction(R.id.nav_Tasks, 0);
+        navigationView.getMenu().getItem(0).setChecked(true);
 
         View headerview = navigationView.getHeaderView(0);
         ImageView header = (ImageView) headerview.findViewById(R.id.imageView);
@@ -115,6 +121,7 @@ public class ActionBar extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Toast.makeText(ActionBar.this, item.getItemId(), Toast.LENGTH_LONG).show();
         android.app.FragmentManager fragmentManager = getFragmentManager();
 
         if (id == R.id.nav_Home) {
@@ -130,7 +137,9 @@ public class ActionBar extends AppCompatActivity
         } else if (id == R.id.nav_Summary) {
             fragmentManager.beginTransaction().replace(R.id.content_side_bar, new SummaryFragment()).commit();
         } else if (id == R.id.nav_Logout) {
-            fragmentManager.beginTransaction().replace(R.id.content_side_bar, new LogoutFragment()).commit();
+            FirebaseAuth.getInstance().signOut();
+        } else {
+            fragmentManager.beginTransaction().replace(R.id.content_side_bar, new TaskFragment()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

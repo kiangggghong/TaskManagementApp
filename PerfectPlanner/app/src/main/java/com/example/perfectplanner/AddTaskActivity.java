@@ -22,21 +22,21 @@ public class AddTaskActivity extends ActionBar{
         drawer.addView(contentView, 0);
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-//
-//    public void showDatePickerDialog(View v) {
-//        DialogFragment newFragment = new TaskCalendarDialog();
-//        newFragment.show(getSupportFragmentManager(), "datePicker");
-//    }
-//
-//    public void showTimePickerDialog(View v) {
-//        DialogFragment newFragment = new TaskTimerDialog();
-//        newFragment.show(getSupportFragmentManager(), "timePicker");
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void showDatePickerDialog(View v) {
+        DialogFragment newFragment = new TaskCalendarDialog();
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new TaskTimerDialog();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
+    }
 
 }

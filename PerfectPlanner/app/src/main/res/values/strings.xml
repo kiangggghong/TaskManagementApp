@@ -27,12 +27,13 @@
     <string name="logout">LOGOUT</string>
     <string name="testuser">\@Testuser</string>
 
-<<<<<<< HEAD
     <string name="error_empty_email">Invalid Email.</string>
     <string name="error_empty_password">Invalid Password</string>
 
     <string name="progress_dialog_creating_account">Creating account... Please wait!</string>
-=======
+    <string name="progress_dialog_signing_in">Signing you in... Please wait!</string>
+    <string name="progress_dialog_reset">Password reset in progress!</string>
+
     <string name="quote1">Keep your goals away from the trolls.</string>
     <string name="quote2">Yesterday, you said tomorrow.</string>
     <string name="quote3">There are seven days in the week and someday isn\'t one of them.</string>
@@ -85,8 +86,4 @@
     <!--<string name="quote50">\@Testuser</string>-->
 
 
-
-
-
->>>>>>> ad5456571fe1030df9fcff05326aefc4b07e175b
 </resources>
