@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_Home"
+            android:icon="@drawable/home_icon"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/nav_Tasks"
+            android:icon="@drawable/tasks"
+            android:title="@string/task" />
+        <item
+            android:id="@+id/nav_Calendar"
+            android:icon="@drawable/calendar"
+            android:title="@string/calendar" />
+
+        <item
+            android:id="@+id/nav_Friends"
+            android:icon="@drawable/friend"
+            android:title="@string/friends" />
+
+        <item
+            android:id="@+id/nav_Badges"
+            android:icon="@drawable/badges"
+            android:title="BADGES" />
+
+        <item
+            android:id="@+id/nav_Summary"
+            android:icon="@drawable/summary"
+            android:title="@string/summary" />
+
+        <item
+            android:id="@+id/nav_Logout"
+            android:icon="@drawable/logout"
+            android:title="@string/logout" />
+
+    </group>
+
+
+</menu>

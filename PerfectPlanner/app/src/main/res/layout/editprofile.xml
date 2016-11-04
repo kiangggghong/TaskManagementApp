@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/imageButton5"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp" />
+
+    <Button
+        android:text="Change Photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:id="@+id/Changephoto"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_below="@+id/imageButton5"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="I love studying"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_alignStart="@+id/editText" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/sym_action_chat"
+        android:layout_marginTop="22dp"
+        android:id="@+id/imageView2"
+        android:layout_below="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/sym_action_email"
+        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_marginTop="28dp"
+        android:id="@+id/imageView3" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/sym_action_call"
+        android:layout_marginTop="26dp"
+        android:id="@+id/imageView4"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignStart="@+id/imageView3" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="cococ@mail.com"
+        android:ems="10"
+        android:id="@+id/editText3"
+        android:layout_alignBottom="@+id/imageView3"
+        android:layout_alignStart="@+id/editText2" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="81234567"
+        android:ems="10"
+        android:id="@+id/editText4"
+        android:layout_alignBottom="@+id/imageView4"
+        android:layout_alignStart="@+id/editText3" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/imageView"
+        android:layout_marginEnd="34dp"
+        android:layout_alignTop="@+id/editText"
+        android:layout_toStartOf="@+id/Changephoto" />
+
+    <EditText
+        android:layout_width="92dp"
+        android:inputType="textPersonName"
+        android:text="Coco"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_below="@+id/Changephoto"
+        android:layout_alignStart="@+id/imageButton5" />
+
+    <Button
+        android:text="Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editText4"
+        android:layout_toEndOf="@+id/imageView2"
+        android:layout_marginTop="14dp"
+        android:id="@+id/button2" />
+
+    <Button
+        android:text="Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button2"
+        android:layout_toEndOf="@+id/imageButton5"
+        android:id="@+id/cancelbutton" />
+</RelativeLayout>

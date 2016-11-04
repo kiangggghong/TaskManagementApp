@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HELLO! @TESTER" />
+
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/textView3"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/add"
+            android:gravity="bottom|center"
+            android:text="Add Task"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/viewCalBtn"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/textView3"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/calendarhome"
+            android:gravity="bottom|center"
+            android:text="Calendar"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/tasksBtn"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/textView3"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="220dp"
+            android:background="@drawable/taskshome"
+            android:gravity="bottom|center"
+            android:text="Tasks"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/friendBtn"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/textView3"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="220dp"
+            android:background="@drawable/friends"
+            android:gravity="bottom|center"
+            android:text="Friend"
+            android:textSize="18sp" />
+
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/quoteText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:fontFamily="cursive"
+        android:gravity="bottom|center"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+</RelativeLayout>

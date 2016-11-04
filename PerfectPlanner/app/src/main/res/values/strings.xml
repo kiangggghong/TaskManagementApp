@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">Perfect Planner</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="home">HOME</string>
+    <string name="task">TASKS</string>
+    <string name="calendar">CALENDAR</string>
+    <string name="summary">SUMMARY</string>
+    <string name="friends">FRIENDS</string>
+    <string name="logout">LOGOUT</string>
+    <string name="testuser">\@Testuser</string>
+
+<<<<<<< HEAD
+    <string name="error_empty_email">Invalid Email.</string>
+    <string name="error_empty_password">Invalid Password</string>
+
+    <string name="progress_dialog_creating_account">Creating account... Please wait!</string>
+=======
+    <string name="quote1">Keep your goals away from the trolls.</string>
+    <string name="quote2">Yesterday, you said tomorrow.</string>
+    <string name="quote3">There are seven days in the week and someday isn\'t one of them.</string>
+    <string name="quote4">You don\'t have to be great to start\, you have to start to be great.</string>
+    <string name="quote5">Don\'t spend more than 5 minutes on something that will not matter in 5 years.</string>
+    <string name="quote6">Push yourself because\, no one else is going to do it for you.</string>
+    <string name="quote7">The difference between ordinary and extraordinary is that little extra.</string>
+    <string name="quote8">The struggle you\'re in today is developing strength you need tomorrow.</string>
+    <string name="quote9">There\'s no elevator to success. You have to take the stairs.</string>
+    <string name="quote10">Never give up.</string>
+    <string name="quote11">There\'s no elevator to success. You have to take the stairs.</string>
+    <string name="quote12">If it is important to you, you will find a way. If not, you will find an excuse.</string>
+    <string name="quote13">I\'m not going to tell you it is easy. I\'m telling you it\'s going to be worth it.</string>
+    <string name="quote14">Don\'t study to learn. Learn to study. What you learn today is what you will become tomorrow.</string>
+    <string name="quote15">There is no substitute for hard work.</string>
+    <string name="quote16">Success is the sum of small efforts, repeated. Day in and Day out.</string>
+    <string name="quote17">You can\'t have a better tomorrow if you\'re still thinking about yesterday.</string>
+    <!--<string name="quote18">\@Testuser</string>-->
+    <!--<string name="quote19">\@Testuser</string>-->
+    <!--<string name="quote20">\@Testuser</string>-->
+    <!--<string name="quote21">\@Testuser</string>-->
+    <!--<string name="quote22">\@Testuser</string>-->
+    <!--<string name="quote23">\@Testuser</string>-->
+    <!--<string name="quote24">\@Testuser</string>-->
+    <!--<string name="quote25">\@Testuser</string>-->
+    <!--<string name="quote26">\@Testuser</string>-->
+    <!--<string name="quote27">\@Testuser</string>-->
+    <!--<string name="quote28">\@Testuser</string>-->
+    <!--<string name="quote29">\@Testuser</string>-->
+    <!--<string name="quote30">\@Testuser</string>-->
+    <!--<string name="quote31">\@Testuser</string>-->
+    <!--<string name="quote32">\@Testuser</string>-->
+    <!--<string name="quote33">\@Testuser</string>-->
+    <!--<string name="quote34">\@Testuser</string>-->
+    <!--<string name="quote35">\@Testuser</string>-->
+    <!--<string name="quote36">\@Testuser</string>-->
+    <!--<string name="quote37">\@Testuser</string>-->
+    <!--<string name="quote38">\@Testuser</string>-->
+    <!--<string name="quote39">\@Testuser</string>-->
+    <!--<string name="quote40">\@Testuser</string>-->
+    <!--<string name="quote41">\@Testuser</string>-->
+    <!--<string name="quote42">\@Testuser</string>-->
+    <!--<string name="quote43">\@Testuser</string>-->
+    <!--<string name="quote44">\@Testuser</string>-->
+    <!--<string name="quote45">\@Testuser</string>-->
+    <!--<string name="quote46">\@Testuser</string>-->
+    <!--<string name="quote47">\@Testuser</string>-->
+    <!--<string name="quote48">\@Testuser</string>-->
+    <!--<string name="quote49">\@Testuser</string>-->
+    <!--<string name="quote50">\@Testuser</string>-->
+
+
+
+
+
+>>>>>>> ad5456571fe1030df9fcff05326aefc4b07e175b
+</resources>
