@@ -107,7 +107,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        mToolbar.setTitle("Forgot Password");
+        //mToolbar.setTitle("Forgot Password");
     }
 
     public void onResetPressed(View view) {

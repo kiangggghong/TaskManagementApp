@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,25 +8,37 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.perfectplanner.SignInActivity">
+    tools:context="com.example.perfectplanner.SignInActivity"
+    android:background="@drawable/bg_signin_page">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/sign_up_toolbar"
-            android:layout_height="?android:attr/actionBarSize"
-            android:layout_width="match_parent">
-
-        </android.support.v7.widget.Toolbar>
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            app:srcCompat="@drawable/signin_logo"
+            android:id="@+id/signin_logo"
+            android:layout_marginTop="60dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="16dp">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/sign_up_toolbar"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_width="match_parent"
+                android:layout_weight="1">
+
+            </android.support.v7.widget.Toolbar>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/sign_in_email_layout"
@@ -37,7 +50,8 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:inputType="textEmailAddress"
-                    android:hint="Email Address"/>
+                    android:hint="Email Address"
+                    android:textColor="@color/pp_lightgrey"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -51,7 +65,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textPassword"
-                    android:hint="Password"/>
+                    android:hint="Password"
+                    android:textColor="@color/pp_lightgrey"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -61,7 +76,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:onClick="onSignInWithEmailPressed"
-                android:text="Sign In" />
+                android:text="Sign In"
+                android:background="@drawable/signin_btn"/>
 
             <Button
                 android:id="@+id/sign_in_create_button"
@@ -69,7 +85,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
                 android:onClick="onRegisterPressed"
-                android:text="Register" />
+                android:text="Register"
+                android:background="@drawable/signin_btn"/>
 
             <Button
                 android:layout_width="match_parent"

@@ -8,6 +8,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -30,9 +31,11 @@ public class SignUpActivity extends BaseActivity {
 
     private TextInputLayout mEmailInputLayout;
     private TextInputLayout mPasswordInputLayout;
+    private TextInputLayout mNameInputLayout;
 
     private TextInputEditText mEmailInput;
     private TextInputEditText mPasswordInput;
+    private TextInputEditText mNameInput;
 
     private ProgressDialog mAccountCreationProgressDialog;
 
@@ -55,10 +58,10 @@ public class SignUpActivity extends BaseActivity {
 
                 if (user != null) {
                     // Switch screen to MainFriendActivity if a valid authenticated session is available
-                    //Intent intent = new Intent(SignUpActivity.this, MainFriendActivity.class);
-                    //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    //startActivity(intent);
-                    //finish();
+                    Intent intent = new Intent(SignUpActivity.this, ActionBar.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
                 }
             }
         };
@@ -91,6 +94,9 @@ public class SignUpActivity extends BaseActivity {
     }
 
     private void initialiseUI() {
+        mNameInputLayout = (TextInputLayout) findViewById(R.id.sign_up_name_layout);
+        mNameInput = (TextInputEditText) findViewById(R.id.sign_up_name);
+
         mEmailInputLayout = (TextInputLayout) findViewById(R.id.sign_up_email_layout);
         mEmailInput = (TextInputEditText) findViewById(R.id.sign_up_email);
 
@@ -112,7 +118,7 @@ public class SignUpActivity extends BaseActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        mToolbar.setTitle("Register Account");
+        //mToolbar.setTitle("Register Account");
     }
 
     public void onSignUpWithEmailPressed(View view) {
@@ -122,15 +128,27 @@ public class SignUpActivity extends BaseActivity {
     private void signUpWithEmail() {
         String email = mEmailInput.getText().toString();
         String password = mPasswordInput.getText().toString();
+        final String name = mNameInput.getText().toString();
 
         // Check for empty edit text fields before authentication
         if (email.equals("")) {
-            mEmailInputLayout.setError(getString(R.string.error_empty_email));
+            mEmailInputLayout.setError(getString(R.string.error_field_required));
+            return;
+        } else if (!email.contains("@")){
+            mEmailInputLayout.setError(getString(R.string.error_invalid_email));
             return;
         }
 
         if (password.equals("")) {
-            mPasswordInputLayout.setError(getString(R.string.error_empty_password));
+            mPasswordInputLayout.setError(getString(R.string.error_field_required));
+            return;
+        } else if (password.length() < 6) {
+            mPasswordInputLayout.setError(getString(R.string.error_invalid_password));
+            return;
+        }
+
+        if (name.equals("")) {
+            mNameInputLayout.setError(getString(R.string.error_field_required));
             return;
         }
 
@@ -144,26 +162,44 @@ public class SignUpActivity extends BaseActivity {
                     mAccountCreationProgressDialog.dismiss();
                 } else {
                     // Sign Up SUCCESS
-                    //mAccountCreationProgressDialog.dismiss();
-                    //Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
-                    //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    //startActivity(intent);
-                    //finish();
-                    addAdditionalUserInformation();
+                    updateUserProfile(name);
+
+                    mAccountCreationProgressDialog.dismiss();
+                    Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+//                  addAdditionalUserInformation();
+
                 }
             }
         });
     }
 
-    private void addAdditionalUserInformation(){
+    private void updateUserProfile(String name){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        String uID;
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                .setDisplayName(name)
+                .build();
 
-        if (user != null) {
-            uID = user.getUid();
-        }
+        user.updateProfile(profileUpdates)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            //Log.d(TAG, "User profile updated.");
+                            mAccountCreationProgressDialog.dismiss();
+                            Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
 
+                        } else{
+                            //Log.d(TAG, "User profile not updated");
+                        }
+                    }
+                });
 
     }
 }

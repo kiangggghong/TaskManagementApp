@@ -55,10 +55,10 @@ public class SignInActivity extends BaseActivity {
 
                 if (user != null) {
                     // Switch screen to MainFriendActivity if a valid authenticated session is available
-                    //Intent intent = new Intent(SignUpActivity.this, MainFriendActivity.class);
-                    //intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    //startActivity(intent);
-                    //finish();
+                    Intent intent = new Intent(SignInActivity.this, ActionBar.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
                 }
             }
         };
@@ -112,7 +112,7 @@ public class SignInActivity extends BaseActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        mToolbar.setTitle("Sign In");
+//        mToolbar.setTitle("Sign In");
     }
 
     public void onSignInWithEmailPressed(View view) {

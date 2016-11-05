@@ -27,14 +27,22 @@ public class TaskTimerDialog extends DialogFragment implements TimePickerDialog.
         // Do something with the time chosen by the user
         EditText tv1=(EditText) getActivity().findViewById(R.id.sTaskDueTime);
 
-
         if (hourOfDay > 12) {
 
             int afternoonHour = hourOfDay - 12;
 
-            tv1.setText(afternoonHour + ":" + minute + " PM");
+            if (minute < 10) {
+                tv1.setText(afternoonHour + ":0" + minute + " PM");
+            } else {
+                tv1.setText(afternoonHour + ":" + minute + " PM");
+            }
         } else {
             tv1.setText(hourOfDay + ":" + minute + " AM");
+            if (minute < 10) {
+                tv1.setText(hourOfDay + ":0" + minute + " AM");
+            } else {
+                tv1.setText(hourOfDay + ":" + minute + " AM");
+            }
         }
 
     }

@@ -13,4 +13,13 @@
     <color name="darkgreen" type="color">#FF669900</color>
     <color name="darkorange" type="color">#FFFF8800</color>
     <color name="darkred" type="color">#FFCC0000</color>
+    <color name="pp_darkgrey">#343645</color>
+    <color name="pp_darkgrey2">#45485b</color>
+    <color name="pp_salmon">#efb0ab</color>
+    <color name="pp_darkblue">#063552</color>
+    <color name="pp_darkblue2">#0a5889</color>
+    <color name="pp_blue">#51b4f3</color>
+    <color name="pp_darkblue3">#052940</color>
+    <color name="pp_lightblue">#acdbf9</color>
+    <color name="pp_blue2">#63bcf4</color>
 </resources>

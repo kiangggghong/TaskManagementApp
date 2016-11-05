@@ -1,6 +1,7 @@
 package com.example.perfectplanner;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -26,9 +27,12 @@ public class Profile extends Fragment{
         host.setup();
 
         TabHost.TabSpec spec = host.newTabSpec("Friends");
-        spec.setContent(R.id.tab1);
+
         spec.setIndicator("Friends");
         host.addTab(spec);
+        Intent intent = new Intent(getActivity(),FriendTb.class);
+        spec.setContent(intent);
+        startActivity(intent);
 
         spec = host.newTabSpec("Media");
         spec.setContent(R.id.tab1);

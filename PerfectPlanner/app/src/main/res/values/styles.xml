@@ -3,11 +3,15 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/pp_darkgrey</item>
+        <item name="colorPrimaryDark">@color/pp_darkgrey</item>
+        <item name="colorAccent">@color/pp_salmon</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:colorBackground">@color/pp_lightgrey</item>
+        <item name="android:colorForeground">@color/foreground_material_light</item>
+        <item name="android:textColorPrimary">@color/pp_darkgrey</item>
+        <item name="android:navigationBarColor">@color/pp_darkgrey</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -18,4 +22,20 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.drawer">
+
+        <item name="android:colorBackground">@color/pp_lightgrey</item>
+        <item name="colorAccent">@color/pp_salmon</item>
+        <item name="android:colorForeground">@color/pp_pastelyellow</item>
+        <item name="colorPrimary">@color/pp_darkgrey</item>
+    </style>
+
+    <style name="AppTheme.signin_page" parent="AppTheme" >
+        <item name="colorAccent">@color/pp_lightgrey</item>
+        <item name="android:colorForeground">@color/pp_lightgrey</item>
+        <item name="android:textColorHint">@color/pp_lightgrey</item>
+        <item name="colorControlNormal">#80EEF2F5</item>
+        <item name="titleTextColor">@color/pp_lightgrey</item>
+    </style>
 </resources>

@@ -4,6 +4,7 @@ package com.example.perfectplanner;
  * Created by fangy on 27/10/2016.
  */
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -14,24 +15,25 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
 
-public class MainFriendActivity extends Fragment {
+public class MainFriendActivity extends ActionBar {
 
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View myView = inflater.inflate(R.layout.main_friends, container, false);
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.main_friends, null, false);
+        drawer.addView(contentView, 0);
 
         String[] names = {"Alice", "Bob", "Charlie"};
-        ListView listView = (ListView) myView.findViewById(R.id.friendListView);
-        SearchView searchView = (SearchView) myView.findViewById(R.id.searchView1);
-        final ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(
-                getActivity(),
-                android.R.layout.simple_list_item_1, names
-        );
 
+        ListView listView = (ListView) contentView.findViewById(R.id.friendListView);
+        SearchView searchView = (SearchView) contentView.findViewById(R.id.searchView1);
+
+        final ArrayAdapter<String> listViewAdapter = new ArrayAdapter<String>(this , android.R.layout.simple_list_item_1, names);
         listView.setAdapter(listViewAdapter);
-
 
         searchView.setOnQueryTextListener(new onQueryTextListener(){
             @Override
@@ -46,8 +48,6 @@ public class MainFriendActivity extends Fragment {
                 return false;
             }
         });
-
-        return myView;
     }
 
     private class onQueryTextListener implements OnQueryTextListener {
@@ -75,8 +75,8 @@ public class MainFriendActivity extends Fragment {
 //
 //        mListView = (ListView)myView.findViewById(R.id.friendListView);
 
-        //Declaring Array adapter
-        //ArrayAdapter<String> countryAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, Countries);
+    //Declaring Array adapter
+    //ArrayAdapter<String> countryAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, Countries);
 
 //        ArrayList<Pair<String, Integer>> countries = new ArrayList<Pair<String, Integer>>();
 //        countries.add(Pair.create("My Profile", R.drawable.alice));
@@ -84,7 +84,7 @@ public class MainFriendActivity extends Fragment {
 //        public View getView(int position, View convertView, ViewGroup container){
 //
 //        }
-        //Setting the android ListView's adapter to the newly created adapter
+    //Setting the android ListView's adapter to the newly created adapter
 //        mListView.setAdapter(countryAdapter);
 //        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override

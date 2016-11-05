@@ -1,6 +1,7 @@
 package com.example.perfectplanner;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -129,9 +130,10 @@ public class ActionBar extends BaseActivity
         } else if (id == R.id.nav_Tasks) {
             fragmentManager.beginTransaction().replace(R.id.content_side_bar, new TaskFragment()).commit();
         } else if (id == R.id.nav_Calendar) {
-            fragmentManager.beginTransaction().replace(R.id.content_side_bar, new CalendarFragment()).commit();
+            Intent a = new Intent(this, AddTaskActivity.class);
+            startActivity(a);
         } else if (id == R.id.nav_Friends) {
-            fragmentManager.beginTransaction().replace(R.id.content_side_bar, new MainFriendActivity()).commit();
+            Intent asd = new Intent(this, MainFriendActivity.class);
         } else if (id == R.id.nav_Badges) {
             fragmentManager.beginTransaction().replace(R.id.content_side_bar, new MainBadges()).commit();
         } else if (id == R.id.nav_Summary) {
